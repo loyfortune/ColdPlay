@@ -1,16 +1,16 @@
 A user friendly movie streaming app to get latest movies, and stream on the go. Built with React, Vite, Tailwind CSS, and firbase.
 
-# Features
-
-• View different categories of movies, including upcoming, latest, top-rated, etc.
-• View movie decription, release date, as well as rating on the movie page.
- • Save/like movies of your choice.
- •Stream movie of choice on the spot.
- •Sign up, log in and all user info is saved and secured with firebase' cloud firestore database.
-
-# Movie Streaming App - Project Structure
-
 ```text
+## Features
+
+* View different categories of movies, including upcoming, latest, top-rated, etc.
+* View movie decription, release date, as well as rating on the movie page.
+* Save/like movies of your choice.
+* Stream movie of choice on the spot.
+* Sign up, log in and all user info is saved and secured with firebase' cloud firestore database.
+
+## Movie Streaming App - Project Structure
+
 src/
 │
 ├── assets/
