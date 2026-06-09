@@ -1,6 +1,6 @@
 A user friendly movie streaming app to get latest movies, and stream on the go. Built with React, Vite, Tailwind CSS, and firbase.
 
-```text
+
 ## Features
 
 * View different categories of movies, including upcoming, latest, top-rated, etc.
@@ -10,7 +10,7 @@ A user friendly movie streaming app to get latest movies, and stream on the go. 
 * Sign up, log in and all user info is saved and secured with firebase' cloud firestore database.
 
 ## Movie Streaming App - Project Structure
-
+```text
 src/
 │
 ├── assets/
