@@ -42,7 +42,7 @@ const Movie = ({ item }: MovieProps) => {
               <i onClick={saveMovie} className='absolute top-4 left-4 text-gray-300 cursor-pointer'>{like ? <FaHeart /> : <FaRegHeart />}</i>             
                <p className='whitespace-normal text-xs md:text-sm font-bold flex justify-center items-center h-full text-center'>{item?.title}</p>
              </div>
-           </Link>         
+           </Link> 
 
   )
 }
