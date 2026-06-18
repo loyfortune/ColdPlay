@@ -1,19 +1,39 @@
-import { Link, useLocation } from "react-router"
+import { Link, useLocation, useNavigate } from "react-router"
 import { UserAuth } from '../context/AuthContext';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { FiSearch } from "react-icons/fi";
 
 const Navbar = () => {
     const { user, logOut } = UserAuth();
+    const [query, setQuery] = useState('');
     const location = useLocation();
     const buttonRef = useRef<HTMLButtonElement>(null);
     const navbarRef = useRef<HTMLDivElement>(null);
+    const searchRef = useRef<HTMLButtonElement>(null);
+    const formRef = useRef<HTMLFormElement>(null)
+    const navigate = useNavigate();
     //console.log(user?.email);
-
+    
     const handleLogOut = async () => {
         try{
             await logOut();
         } catch (error) {
             console.log(error);
+        }
+    }
+
+    const displayForm = () => {
+        const searchBtn = searchRef.current;
+        const formElement = formRef.current;
+         searchBtn?.classList.add('hidden');
+        formElement?.classList.remove('hidden');
+    }
+
+    const handleSearch = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (query.trim()) {
+            navigate(`/search?keyword=${encodeURIComponent(query)}`)
         }
     }
 
@@ -26,6 +46,18 @@ const Navbar = () => {
             const logOutButton = buttonRef.current;
             logOutButton?.classList.remove('hidden');
         }
+
+        const toggleSearch = () => {
+        const searchBtn = searchRef.current;
+        const formElement = formRef.current;
+        if (formElement?.classList.contains('hidden')) {
+        searchBtn?.classList.remove('hidden');
+        }
+        else {
+        searchBtn?.classList.add('hidden');  
+        }   
+        }
+        toggleSearch();
     }, [location.pathname]);
 
     return(
@@ -42,6 +74,18 @@ const Navbar = () => {
             </div>
             ) : (
             <div className='flex items-center gap-2 sm:gap-4'>
+                <button onClick={displayForm} ref={searchRef} className="text-white text-xs sm:text-base mt-2 cursor-pointer"><FiSearch /></button>
+                    <form onSubmit={handleSearch} className="hidden mr-1 w-28 sm:w-xs md:w-sm text-white" ref={formRef}>
+                <input
+                value={query}
+                onChange={(e) => {setQuery(e.target.value)}}
+                className="w-[90%] rounded py-1 px-2 text-sm sm:text-base outline outline-gray-300"
+                    type="text"
+                    id="search-box"
+                    placeholder="Search movies..."
+                />
+                <button className="w-[10%] pl-1 cursor-pointer"><FiSearch/></button>
+                </form>
                 <Link to='/login'>
             <button className='text-white text-sm sm:text-base cursor-pointer'>Sign In</button>
             </Link>

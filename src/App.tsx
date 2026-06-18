@@ -8,6 +8,7 @@ import Account from "./pages/Account"
 import ProtectedRoute from "./components/ProtectedRoute"
 import MoviePage from "./pages/MoviePage"
 import Watch from "./pages/Watch"
+import Search from "./pages/Search"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path='/movie/:id' element={<MoviePage />}/>
         <Route path='/watch/:id' element={<ProtectedRoute><Watch/></ProtectedRoute>}/>
+        <Route path="/search" element={<Search/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/account' element={<ProtectedRoute><Account/></ProtectedRoute>}/>

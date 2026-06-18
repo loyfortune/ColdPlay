@@ -46,7 +46,7 @@ const Main = () => {
         <div key={movie?.id} className='w-full h-137.5 text-white'>
             <div className='w-full h-full'>
                 <div className='absolute w-full h-137.5 bg-linear-to-r from-black'></div>
-                <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} alt={movie?.title} />
+                <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} />
                 <div className='absolute w-full top-1/5 p-2 sm:p-4 md:p-8'>
                     <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold'>{movie?.title}</h1>
                     <div className='flex items-center gap-2 sm:gap-4 my-2 sm:my-4'>
