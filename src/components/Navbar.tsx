@@ -67,6 +67,18 @@ const Navbar = () => {
          </Link>
             {user?.email ? (
             <div className='flex items-center gap-2 sm:gap-4'>
+                <button onClick={displayForm} ref={searchRef} className="text-white text-xs sm:text-base mt-2 cursor-pointer"><FiSearch /></button>
+                    <form onSubmit={handleSearch} className="hidden mr-1 w-28 sm:w-xs md:w-sm text-white" ref={formRef}>
+                <input
+                value={query}
+                onChange={(e) => {setQuery(e.target.value)}}
+                className="w-[90%] rounded py-1 px-2 text-sm sm:text-base outline outline-gray-300"
+                type="text"
+                id="search-box"
+                placeholder="Search movies..."
+                />
+                <button className="w-[10%] pl-1 cursor-pointer"><FiSearch/></button>
+                </form>
                 <Link onClick={() => buttonRef.current && (buttonRef.current.classList.remove('hidden'))} to='/account'>
             <button className='text-white text-base md:text-lg cursor-pointer'>Account</button>
             </Link>
@@ -80,9 +92,9 @@ const Navbar = () => {
                 value={query}
                 onChange={(e) => {setQuery(e.target.value)}}
                 className="w-[90%] rounded py-1 px-2 text-sm sm:text-base outline outline-gray-300"
-                    type="text"
-                    id="search-box"
-                    placeholder="Search movies..."
+                type="text"
+                id="search-box"
+                placeholder="Search movies..."
                 />
                 <button className="w-[10%] pl-1 cursor-pointer"><FiSearch/></button>
                 </form>
